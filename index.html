@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agriculture Dashboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background: #f4f6f8;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background-color: #2d6a4f;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #fff;
+      padding: 10px 0;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #40916c;
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .header {
+      background-color: #ffffff;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #2d6a4f;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+      color: #888;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>AgriDash</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Soil Monitoring</a>
+    <a href="#">Weather</a>
+    <a href="#">Crop Health</a>
+    <a href="#">Irrigation</a>
+  </div>
+
+  <div class="main">
+    <div class="header">Agriculture Monitoring Dashboard</div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Weather</h3>
+        <p id="weather">Loading...</p>
+      </div>
+
+      <div class="card">
+        <h3>Soil Moisture</h3>
+        <p id="soilMoisture">35% (Normal)</p>
+      </div>
+
+      <div class="card">
+        <h3>Crop Health</h3>
+        <p id="cropHealth">Healthy ✅</p>
+      </div>
+
+      <div class="card">
+        <h3>Irrigation Status</h3>
+        <p id="irrigationStatus">Scheduled for 6 PM</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 AgriTech Solutions. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    // Simulate fetching weather data
+    document.addEventListener("DOMContentLoaded", function () {
+      setTimeout(() => {
+        const weatherEl = document.getElementById("weather");
+        weatherEl.innerHTML = "25°C, Sunny ☀️";
+      }, 1000);
+    });
+
+    // Future enhancements: fetch data from sensors or APIs
+    /*
+    Example for integration:
+    fetch('https://api.weatherapi.com/...')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('weather').textContent = data.current.temp_c + '°C';
+      });
+    */
+  </script>
+</body>
+</html>
